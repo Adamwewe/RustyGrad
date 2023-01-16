@@ -2,19 +2,33 @@ mod lib;
 use lib::Value;
 
 fn main() {
-    let mut vals : Value<f64, String> = Value::new(32.0, "a".into()); 
-    vals.add(40.0);
-    println!("{:?}", vals);
 
-    vals.mul(20.0);
-    println!("{:?}", vals);
-
-    vals.add(200.0);
+    let mut variable : Value<f64> = Value::new(32.0, "a".into());
 
 
-    let mut vals2 : Value<f64, String> = Value::new(20.0, "b".into()) + vals * Value::new(200.0, "c".into());   
-    println!("{:?}", vals2);
+    let mut vals : Value<f64> = Value::new(32.0, "a".into()); 
+    vals.add(4.0);
+    vals.mul(2.0);
+    // println!("{:?}", vals);
+
+    vals.add(1.0);
+    println!("{:?}", vals.repr());
+
+    vals.add(2.0);
+    println!("{:?}", vals.repr());
+
+    vals.add(4.9);
+
+
+    println!("{:?}", vals.repr());
+
+    let mut vals2 :  Value<f64> = Value::new(20.0, "b".into());  
+    println!("{:?}", vals.repr());
+    vals.tanh();
+
+    println!("{:?}", vals.repr());
 
     vals2.tanh();
-    vals2.visualize();
+    println!("{:?}", vals2.repr());
+    // vals2.visualize();
 }
